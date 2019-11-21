@@ -70,6 +70,7 @@ const transformRelativeRequiredPathToTIRequiredPath = (requiredPath, state) => {
     const requiredAbsPath = resolve(requiredPath, { basedir: path.dirname(filename) });
     const transformed = transformRequiredToTIRequiredFilename(requiredAbsPath, dirs);
     logger.debug(`[ti-alloy-rewrite-imports]: rewrote ${requiredPath} to ${transformed} from ${filename}`);
+    return transformed;
   } catch (e) {
     logger.warn(`unable to resolve '${requiredPath}' from ${filename}`);
   }
